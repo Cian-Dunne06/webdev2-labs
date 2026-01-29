@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Lab One Exercise Four</title>
+</head>
+
+<body>
+    <h1>Calculator</h1>
+    <p>Look in the console for output</p>
+    <script>
+        let num1 = parseInt(prompt("Please enter your first number!", ""));
+        let num2 = parseInt(prompt("Please enter your second number!", ""));
+
+
+        console.log(`The sum of ${num1} and ${num2} is ${num1 + num2}`);
+        console.log(`The difference between ${num1} and ${num2} is ${num1 - num2}`);
+        console.log(`The product of ${num1} and ${num2} is ${num1 * num2}`);
+
+        if (num2 == 0) {
+            console.log(`Cannot divide by zero`)
+        } else {
+            console.log(`The quotient of ${num1} and ${num2} is ${num1 / num2}`);
+        }
+
+        console.log(`result:${num2 ===0 ? "cannot divide by 0" : num1/num2}`);
+
+
+    </script>
+</body>
+
+</html>
