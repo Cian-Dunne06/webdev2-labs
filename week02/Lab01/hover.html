@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Hover</title>
+  <style>
+    #myDiv {
+      width: 200px;
+      height: 200px;
+      background-color: lightgray;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Hover</h1>
+
+  <div id="myDiv"></div>
+
+  <script>
+    const myDiv1 = document.querySelector('#myDiv');
+
+    myDiv1.addEventListener('mouseenter', () => {
+        myDiv1.style.backgroundColor = 'green';
+    });
+
+    myDiv1.addEventListener('mouseleave', () => {
+        myDiv1.style.backgroundColor = 'lightgray';
+    });
+
+  </script>
+</body>
+</html>
