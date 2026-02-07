@@ -1,3 +1,4 @@
+
 let btnAccept = document.querySelector('#acceptButton');
 let btnDecline = document.querySelector('#declineButton');
 let btnMessage = document.querySelector('#messageButton');
