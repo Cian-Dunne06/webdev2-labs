@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Functions</title>
+</head>
+
+<body>
+    <script>
+        const divideBy2 = num => num / 2;
+        console.log(`12 divided by 2 is ${divideBy2(12)}`);
+        console.log(`8 divided by 2 is ${divideBy2(8)}`);
+
+        const area = (num1, num2) => num1 * num2;
+        console.log(`Area of 100 by 150 is ${area(100, 150)}`);
+
+        const testPrime = (n) => {
+            if (n === 1) {
+                return false;
+            }
+            else if (n === 2) {
+                return true;
+            } else {
+                for (let x = 2; x < n; x++) {
+                    if (n % x === 0) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+
+        let num = parseInt(prompt("Enter a number between 1 and 20 to check if it is Prime", ""));
+        if (isNaN(num) || num < 1 || num > 20) {
+            console.log("Error - cannot proceed");
+        }
+        else {
+            testPrime(num) ? console.log(`${num} is Prime`) : console.log(`${num} is not Prime`);
+        }
+
+
+        const verifyAge = (a) => {
+            if (a >= 18) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        let age1 = parseInt(prompt("Enter user1 age: ", ""));
+        verifyAge(age1) ? console.log(`User 1 - Age ${age1} is Adult`) : console.log(`User 1 - Age ${age1} is minor`);
+
+        let age2 = parseInt(prompt("Enter user2 age: ", ""));
+        verifyAge(age2) ? console.log(`User 2 - Age ${age2} is Adult`) : console.log(`User 2 - Age ${age2} is minor`);
+
+        let age3 = parseInt(prompt("Enter user3 age: ", ""));
+        verifyAge(age3) ? console.log(`User 3 - Age ${age3} is Adult`) : console.log(`User 3 - Age ${age3} is minor`);
+
+        let age4 = parseInt(prompt("Enter user4 age: ", ""));
+        verifyAge(age4) ? console.log(`User 4 - Age ${age4} is Adult`) : console.log(`User 4 - Age ${age4} is minor`);
+
+
+
+
+
+    </script>
+</body>
+
+</html>
