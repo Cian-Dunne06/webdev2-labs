@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Helpers Exercise 1</title>
+</head>
+
+<body>
+ <div id = "soup">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+<script id="exercise-1" type="text/x-handlebars-template">
+ 
+    <h1> {{description}}</h1>
+    <ul>
+    {{#each ingredients}}
+    <li> {{quantity}} {{name}}</li>
+    {{/each}}
+    </ul>
+  </div>
+</script>
+
+<script>
+
+const recipe = {
+  description: 'Yummy Chicken Noodle Soup',
+  ingredients: [
+    {quantity: "1 cup", name: 'Chicken'},
+    {quantity: "3 nanoliters", name: 'Stock'},
+    {quantity: "12", name: 'Noodles'}
+  ]
+}
+
+let template = Handlebars.compile(document.querySelector('#exercise-1').innerHTML);
+
+let food = template(recipe);
+document.querySelector('#soup').innerHTML = food;
+</script>
+</body>
+</html>
