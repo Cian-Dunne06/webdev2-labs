@@ -1,0 +1,294 @@
+/* All */
+
+body {
+    background-color: #D75656; 
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Header */
+
+header {
+    display: flex;
+    align-items: center;
+    background-color: #FAE251;
+    margin: 0;
+    justify-content: space-between;
+}
+
+header img {
+    margin: 1em;
+}
+
+header h1 {
+    color: black;
+    font-size: 30px;
+    margin: 50px;
+    padding-top: 50px;
+}
+
+/* Main Body*/
+
+#mainBody{
+    min-height: 100vh;
+}
+
+/* Navbar */
+
+nav.ui.vertical.menu {
+    background-color: #FAE251;
+    height: 100%;
+    padding: 10px 20px;
+    border-radius: 15px;
+    border: 2px solid black;
+    margin: 0;
+}
+
+nav.ui.vertical.menu .item {
+    color: white;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 20px;
+}
+
+nav.ui.vertical.menu .item:hover {
+    background-color: #BA3C06;
+    color: #fff;
+}
+
+
+/* Main */
+main {
+    padding: 1em;
+    color: white;
+}
+
+/*Welcome Page */
+ 
+#welcome {
+    font-family: Georgia, 'Times New Roman';
+    font-size: 40px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#intro{
+    text-align: center;
+    font-size: 15px;
+}
+
+#about{
+    align-items: center;
+    background-color: #BD114A;
+    margin: 10px;
+    padding: 10px;
+}
+
+#about p{
+    text-align: center;
+    font-size: 15px;
+}
+
+#about li {
+    list-style-type: none;
+    text-align: center;
+    font-size: 10px;
+}
+
+#welcomeJS {
+    background-color: #BD114A ;
+    margin: 15px;
+    padding: 15px;
+}
+
+#welcomeJS img {
+    display: block;
+    margin: 0 auto;
+}
+
+
+.collapsible {
+  background-color: #FAE251;
+  color: white;
+  cursor: pointer;
+  padding: 20px;
+  margin: 10px;
+  width: 100%;
+  border: black 2px solid;
+  text-align: left;
+  outline: none;
+  font-size: 20px;
+}
+
+.active, .collapsible:hover {
+  background-color: #BA3C06;
+}
+
+.collapsibleContent {
+  padding: 10px 20px;
+  display: none;
+  overflow: hidden;
+  background-color: #D75656 ;
+;
+}
+
+
+/* Data Page */
+.searchCities{
+    display: flex;
+    padding-bottom: 20px;
+    align-items: center;
+    gap: 20px;
+    background-color: #BD114A;
+    margin: 20px;
+    padding: 20px;
+}
+
+.dataTitle{
+    font-family: Georgia, 'Times New Roman';
+    font-size: 40px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.card .image img {
+    width: 100% !important; 
+    height: 200px !important;
+    object-fit: cover !important;
+}
+
+.cardsAndAddRecord{
+    background-color: #BD114A;
+}
+
+#addRecordBtn{
+    padding: 20px;
+    margin: 10px;
+    font-size: 15px;
+    background-color: #FAE251;
+}
+
+.factsDiv{
+    background-color: #BD114A;
+    margin: 20px;
+    padding: 20px;
+}
+
+.factsDiv h2{
+    font-family: Georgia, 'Times New Roman';
+    font-size: 40px;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.factsDiv p{
+    font-size: 20px;
+}
+
+.factsDiv ul {
+    background-color: #FAE251;
+    color: black;
+}
+
+
+form#inputForm {
+  border: solid #BD114A;
+  padding: 20px;
+  background-color: #D75656;
+}
+
+dialog .form-row {
+  display: flex;
+}
+
+dialog .form-row>label {
+  flex: 0 1 30%;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: white;
+}
+
+dialog form input,
+dialog form select {
+  flex: 2;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  background-color: #FAE251;
+}
+
+
+form button {
+  padding: 1em;
+  background: #BD114A;
+  color: white;
+  border: 0;
+  margin-top: 1em;
+}
+
+dialog {
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
+  width: 600px;
+  padding: 2em;
+}
+
+dialog .addCity {
+  margin: 0;
+  padding: 20px;
+  border: solid #BD114A;
+  border-bottom: none;
+  background: #FAE251;
+  color: black;
+}
+
+dialog .addCity button {
+    background-color: #BD114A;
+    color: white;
+    padding: 0.75em 1em;
+    font-size: 15px;
+    border: solid #BA3C06;
+}
+
+/*About Page*/
+.aboutTitle{
+    font-family: Georgia, 'Times New Roman';
+    font-size: 40px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.aboutParagraph{
+    text-align: center;
+}
+
+.welcomePage{
+    margin: 15px;
+    background-color: #BD114A;
+    padding: 10px;
+    border: dashed 2px #FAE251;
+}
+
+.dataPage {
+     margin: 15px;
+    background-color: #BD114A;
+    padding: 10px;
+    border: dashed 2px #FAE251;
+}
+
+.aboutPage {
+     margin: 15px;
+    background-color: #BD114A;
+    padding: 10px;
+    border: dashed 2px #FAE251;
+}
+
+
+
+
+
+
+
+
+  

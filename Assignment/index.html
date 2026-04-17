@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.9.4/semantic.min.css">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+            <h1>Assignment - Cities of the World</h1>
+            <img class="ui small image" src="images/headerGlobe.png" alt="Globe">
+    </header>
+
+    <div class="ui grid" id="mainBody">
+        <div class="four wide column">
+            <nav class="ui vertical menu">
+                <a class="item" href="index.html">Welcome</a>
+                <a class="item" href="data.html">Cities</a>
+                <a class="item" href="about.html">About</a>
+            </nav>
+        </div>
+
+
+        <div class="twelve wide column">
+            <main>
+                <h2 id="welcome"></h2>
+
+                <script>
+                    const name = prompt("Please enter your name!");
+                    if (name === null || name === "") {
+                        document.querySelector('#welcome').textContent = "Welcome!";
+                    } else {
+                    document.querySelector('#welcome').textContent = `Welcome, ${name}!`;
+                    }
+                </script>
+                <p id="intro">I hope you enjoy my web page, I will be using this to show of my capabilities in a series of aspects of website development.</p>
+                
+                <div id="about">
+                <p>This will include:</p>
+                <ul>
+                    <li> HTML</li>
+                    <li> CSS </li>
+                    <li> Fomantic UI</li>
+                    <li> JavaScript</li>
+                    <li> Handlebars</li>
+                </ul>
+                </div>
+                <hr>
+                <div id="welcomeJS">
+                    <img class="imageSwap" src="images/welcome.jpg" alt="Opening Image" width="70%" height="30%">
+                
+
+                <button type="button" class="collapsible"> What to Expect?  </button>
+                <div class="collapsibleContent">
+                    <p>In this webpage you can expect to learn about some of the cities of the world! <br>
+                    We are going to explore some of the most famous cities and see things like: </p>
+                    <ul>
+                        <li> Their Population </li>
+                        <li> Where They Are Located </li>
+                        <li> Even Images Of Them </li>
+                    </ul>
+                    <p> The best part? The entire thing is interactable, you can add your own cities, delete existing ones, sort, filter and even search.</p>
+                </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+        <script src="js/script.js"></script>
+</body>

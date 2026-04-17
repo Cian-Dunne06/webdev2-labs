@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Welcome</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.9.4/semantic.min.css">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <h1>Assignment - Cities of the World</h1>
+    <img class="ui small image" src="images/headerGlobe.png" alt="Globe">
+  </header>
+
+  <div class="ui grid" id="mainBody">
+    <div class="four wide column">
+      <nav class="ui vertical menu">
+        <a class="item" href="index.html">Welcome</a>
+        <a class="item" href="data.html">Cities</a>
+        <a class="item" href="about.html">About</a>
+      </nav>
+    </div>
+
+
+    <div class="twelve wide column">
+      <main>
+        <div id="container">
+          <h1 class="dataTitle">Cities of the World</h1>
+          <div class="searchCities">
+            <form>
+              <div class="form-row">
+                <label for="name">Search by Name</label>
+                <input type="text" name="name" id="name" autofocus required>
+              </div>
+            </form>
+
+            <label for="continent"> Filter by Continent</label>
+            <select id="makeSelect">
+              <option value="">-- Select a Continent --</option>
+              <option value="Europe">Europe</option>
+              <option value="Asia">Asia</option>
+              <option value="North America">North America</option>
+              <option value="South America">South America</option>
+              <option value="Africa">Africa</option>
+              <option value="Oceania">Oceania</option>
+            </select>
+
+            <button class="sortPop"> Sort by Population </button>
+
+            <button class="clearFilters"> Clear </button>
+
+          </div>
+
+          
+    <div class="cardsAndAddRecord">
+          <div id="cards"></div>
+      
+
+        <script id="search" type="text/x-handlebars-template">
+  
+      <div class="ui centered link cards">
+       {{#each cities}}
+      <div class="card">
+        <div class="image">
+          <img src="{{image}}" alt="{{name}}"> 
+        </div>
+        <div class="content">
+          <div class="header">{{name}}</div>
+          <div class="meta">{{country}}</div>
+          <div class="description">
+            <p><i class="globe icon"></i><strong>Continent:</strong> {{continent}}</p>
+            <p><i class="users icon"></i><strong>Population:</strong> {{population}}m</p>
+            <p><i class="expand icon"></i><strong>Area:</strong> {{area}} km²</p>
+            <p><i class="history icon"></i><strong>Founded:</strong> {{yearFounded}}AD</p>
+          </div>
+        </div>
+        <div>
+            <button class="delete" data-name="{{name}}"> Delete </button>
+        </div>
+      </div>
+    {{/each}}
+      </div>
+      </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+
+
+        <button id="addRecordBtn">Add a Record</button>
+    </div>
+
+    <div class="factsDiv">
+    <h2> Facts! </h2>
+    <p> Here are some interesting pieces of information about the cities.</p>
+    <ul>
+      <li id="averagePopulation"></li>
+      <li id="oldestCity"></li>
+      <li id="largestCity"></li>
+    </ul>
+
+    </div>
+    </main>
+  </div>
+  </div>
+
+  <dialog>
+    <header class="addCity">
+      <h1>Add a City</h1>
+      <button id="close"> X </button>
+    </header>
+
+    <form id="inputForm">
+      <div class="form-row">
+        <label for="cityName">Name</label>
+        <input type="text" name="cityName" id="cityName" autofocus required title="Please enter a valid name">
+      </div>
+
+      <div class="form-row">
+        <label for="country">Country</label>
+        <input type="text" name="country" id="country" autofocus required title="Please enter a valid country">
+      </div>
+
+      <div class="form-row">
+        <label for="continent">Continent</label>
+        <select name="continent" id="continent" required>
+          <option value="">-- Select a Continent --</option>
+          <option value="Europe">Europe</option>
+          <option value="Asia">Asia</option>
+          <option value="North America">North America</option>
+          <option value="South America">South America</option>
+          <option value="Africa">Africa</option>
+          <option value="Oceania">Oceania</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="population">Population (m)</label>
+        <input type="number" name="population" id="population" required title="Please enter a valid decimal number">
+      </div>
+
+      <div class="form-row">
+        <label for="area">Area (km²)</label>
+        <input type="number" name="area" id="area" required title="Please enter a valid number">
+      </div>
+
+      <div class="form-row">
+        <label for="yearFounded">Year Founded</label>
+        <input type="number" name="yearFounded" id="yearFounded" required title="Please enter a valid value for Year">
+      </div>
+
+      <div class="form-row">
+        <label for="img">City Image (URL)</label>
+        <input type="text" name="img" id="img" required title="Please enter a valid url">
+      </div>
+
+      <button type="submit">
+        Add a New City
+      </button>
+      <button type="reset">
+        Clear the Info
+      </button>
+    </form>
+  </dialog>
+  <script src="js/script.js"></script>
+</body>
