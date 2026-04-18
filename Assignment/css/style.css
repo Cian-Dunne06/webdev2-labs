@@ -1,7 +1,7 @@
 /* All */
 
 body {
-    background-color: #D75656; 
+    background-color: #1F6F5F; 
     margin: 0;
     padding: 0;
 }
@@ -12,7 +12,7 @@ body {
 header {
     display: flex;
     align-items: center;
-    background-color: #FAE251;
+    background-color: #2FA084;
     margin: 0;
     justify-content: space-between;
 }
@@ -37,7 +37,7 @@ header h1 {
 /* Navbar */
 
 nav.ui.vertical.menu {
-    background-color: #FAE251;
+    background-color: #2FA084;
     height: 100%;
     padding: 10px 20px;
     border-radius: 15px;
@@ -53,7 +53,7 @@ nav.ui.vertical.menu .item {
 }
 
 nav.ui.vertical.menu .item:hover {
-    background-color: #BA3C06;
+    background-color: #1F6F5F;
     color: #fff;
 }
 
@@ -80,7 +80,7 @@ main {
 
 #about{
     align-items: center;
-    background-color: #BD114A;
+    background-color: #6FCF97;
     margin: 10px;
     padding: 10px;
 }
@@ -97,7 +97,7 @@ main {
 }
 
 #welcomeJS {
-    background-color: #BD114A ;
+    background-color: #6FCF97 ;
     margin: 15px;
     padding: 15px;
 }
@@ -109,8 +109,8 @@ main {
 
 
 .collapsible {
-  background-color: #FAE251;
-  color: white;
+  background-color: #EEEEEE;
+  color: black;
   cursor: pointer;
   padding: 20px;
   margin: 10px;
@@ -122,15 +122,15 @@ main {
 }
 
 .active, .collapsible:hover {
-  background-color: #BA3C06;
+  background-color: #1F6F5F;
 }
 
 .collapsibleContent {
   padding: 10px 20px;
   display: none;
   overflow: hidden;
-  background-color: #D75656 ;
-;
+  background-color: #EEEEEE ;
+  color: black;
 }
 
 
@@ -140,7 +140,7 @@ main {
     padding-bottom: 20px;
     align-items: center;
     gap: 20px;
-    background-color: #BD114A;
+    background-color: #6FCF97;
     margin: 20px;
     padding: 20px;
 }
@@ -159,18 +159,18 @@ main {
 }
 
 .cardsAndAddRecord{
-    background-color: #BD114A;
+    background-color: #6FCF97;
 }
 
 #addRecordBtn{
     padding: 20px;
     margin: 10px;
     font-size: 15px;
-    background-color: #FAE251;
+    background-color: #EEEEEE;
 }
 
 .factsDiv{
-    background-color: #BD114A;
+    background-color: #6FCF97;
     margin: 20px;
     padding: 20px;
 }
@@ -187,15 +187,15 @@ main {
 }
 
 .factsDiv ul {
-    background-color: #FAE251;
+    background-color: #EEEE;
     color: black;
 }
 
 
 form#inputForm {
-  border: solid #BD114A;
+  border: solid black;
   padding: 20px;
-  background-color: #D75656;
+  background-color: #1F6F5F;
 }
 
 dialog .form-row {
@@ -214,14 +214,14 @@ dialog form select {
   flex: 2;
   padding: 0.5em;
   margin-bottom: 1em;
-  background-color: #FAE251;
+  background-color: #2FA084;
 }
 
 
 form button {
   padding: 1em;
-  background: #BD114A;
-  color: white;
+  background: #6FCF97;
+  color: black;
   border: 0;
   margin-top: 1em;
 }
@@ -237,18 +237,18 @@ dialog {
 dialog .addCity {
   margin: 0;
   padding: 20px;
-  border: solid #BD114A;
+  border: solid black;
   border-bottom: none;
-  background: #FAE251;
+  background: #2FA084;
   color: black;
 }
 
 dialog .addCity button {
-    background-color: #BD114A;
+    background-color: #6FCF97;
     color: white;
     padding: 0.75em 1em;
     font-size: 15px;
-    border: solid #BA3C06;
+    border: none;
 }
 
 /*About Page*/
@@ -265,23 +265,28 @@ dialog .addCity button {
 
 .welcomePage{
     margin: 15px;
-    background-color: #BD114A;
+    background-color: #6FCF97;
     padding: 10px;
-    border: dashed 2px #FAE251;
+    border: dashed 2px #EEEEEE;
+    color: black;
 }
 
 .dataPage {
      margin: 15px;
-    background-color: #BD114A;
+    background-color: #6FCF97;
     padding: 10px;
-    border: dashed 2px #FAE251;
+    border: dashed 2px #EEEEEE;
+    color: black;
+
 }
 
 .aboutPage {
      margin: 15px;
-    background-color: #BD114A;
+    background-color: #6FCF97;
     padding: 10px;
-    border: dashed 2px #FAE251;
+    border: dashed 2px #EEEEEE;
+    color: black;
+
 }
 
 
