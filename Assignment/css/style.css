@@ -251,6 +251,15 @@ dialog .addCity button {
     border: none;
 }
 
+.card {
+    transition: opacity 0.8s ease, transform 0.8s ease !important;
+}
+
+.card.deleting {
+    opacity: 0  !important;
+    transform: translateY(-200px) !important;
+}
+
 /*About Page*/
 .aboutTitle{
     font-family: Georgia, 'Times New Roman';
@@ -369,6 +378,11 @@ dialog .addCity button {
     background-color: #EEEEEE ;
     font-size: 25px;
     font-style: italic;
+}
+
+#addCommentBtn {
+    margin-top: 10px;
+    padding: 5px;
 }
 
 

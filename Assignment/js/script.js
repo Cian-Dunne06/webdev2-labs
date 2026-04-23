@@ -181,11 +181,16 @@ if (cardsEl) {
     document.querySelector('#cards').addEventListener("click", function (evt) {
         if (evt.target.matches(".delete")) {
             const cityName = evt.target.dataset.name;
-            const index = cities.findIndex(city => city.name === cityName);
-            if (index !== -1) {
-                cities.splice(index, 1);
-                renderCards(cities);
-            }
+            const card = evt.target.closest(".card");
+            card.classList.add("deleting");
+
+            setTimeout(() => {
+                const index = cities.findIndex(city => city.name === cityName);
+                if (index !== -1) {
+                    cities.splice(index, 1);
+                    renderCards(cities);
+                }
+            }, 800);
         }
     });
 
@@ -248,24 +253,47 @@ if (cardsEl) {
 }
 
 
-const comments = [
-    {
-        name: "Jake",
-        message: "Really enjoyable!!"
-    },
-    {
-        name: "Claire",
-        message: "I didn't know that London was that old."
-    },
-    {
-        name: "Kyle",
-        message: "Tough to read."
+const commentsEl = document.querySelector(".comments");
+if (commentsEl) {
+
+    const comments = [
+        { name: "Jake", message: "Really enjoyable!!" },
+        { name: "Claire", message: "I didn't know that London was that old." },
+        { name: "Kyle", message: "Tough to read." }
+    ];
+
+    function renderComments() {
+        const tbody = document.getElementById("commentBody");
+        tbody.innerHTML = "";
+        comments.forEach(comment => {
+            const row = document.createElement("tr");
+            row.innerHTML = `<td>${comment.name}</td><td>${comment.message}</td>`;
+            tbody.appendChild(row);
+        });
     }
-];
 
+    renderComments();
 
-const commentSource = document.getElementById("search").innerHTML;
-const commentTemplate = Handlebars.compile(commentSource);
-const commentHTML = commentTemplate({ comments });
-document.querySelector(".comments").innerHTML = commentHTML;
+    document.getElementById("addCommentBtn").addEventListener("click", () => {
+        document.querySelector("dialog").showModal();
+    });
 
+    document.getElementById("close").addEventListener("click", () => {
+        document.querySelector("dialog").close();
+    });
+
+    const commentForm = document.querySelector("dialog form");
+
+    commentForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const name = commentForm.elements.commentName.value;
+        const message = commentForm.elements.message.value;
+
+        comments.push({ name, message });
+        renderComments();
+
+        commentForm.reset();
+        document.querySelector("dialog").close();
+    });
+}

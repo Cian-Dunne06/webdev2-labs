@@ -107,28 +107,17 @@
                     </div>
                 </div>
                 <div class="comments">
-                    <script id="search" type="text/x-handlebars-template">
+                    <table class="commentTable">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Comment</th>
+                            </tr>
+                        </thead>
+                        <tbody id="commentBody"></tbody>
+                    </table>
 
-                <table class="commentTable">
-                    <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Comment</th>
-                    </tr>
-                    </thead>
-                     {{#each comments}}
-                    <tbody>
-                    <tr>
-                        <td>{{name}}</td>
-                        <td>{{message}}</td>
-                    </tr>
-                    </tbody>
-                    {{/each}}
-                </table>
-                </script>
-
-                <button id="addCommentBtn">Add a Comment</button>
-
+                     <button type="button" id="addCommentBtn">Add a Comment</button>
                 </div>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
 
@@ -137,7 +126,7 @@
     </div>
     <dialog>
         <header class="addCity">
-            <h1>Add a City</h1>
+            <h1>Comments</h1>
             <button id="close"> X </button>
         </header>
         <form id="inputForm">
@@ -151,36 +140,43 @@
                 <label for="message">Comment</label>
                 <input type="text" name="message" id="message" autofocus required title="Please enter a valid country">
             </div>
+
+            <button type="submit">
+                Post
+            </button>
+            <button type="button" id="close">
+                Close
+             </button>
         </form>
     </dialog>
 
-        <script>
+    <script>
 
 
-            //Carousel
-            const prev = document.querySelector('.prev');
-            const next = document.querySelector('.next');
-            const wrap = document.querySelector('.img-wrap');
-            const imgs = document.querySelectorAll('.img-wrap img');
+        //Carousel
+        const prev = document.querySelector('.prev');
+        const next = document.querySelector('.next');
+        const wrap = document.querySelector('.img-wrap');
+        const imgs = document.querySelectorAll('.img-wrap img');
 
-            let idx = 0;
+        let idx = 0;
 
-            const showImg = () => {
-                if (idx >= imgs.length) idx = 0;
-                if (idx < 0) idx = imgs.length - 1;
-                wrap.style.transform = `translateX(-${idx * 100}%)`;
-            }
+        const showImg = () => {
+            if (idx >= imgs.length) idx = 0;
+            if (idx < 0) idx = imgs.length - 1;
+            wrap.style.transform = `translateX(-${idx * 100}%)`;
+        }
 
-            next.addEventListener('click', () => {
-                idx++;
-                showImg();
-            });
+        next.addEventListener('click', () => {
+            idx++;
+            showImg();
+        });
 
-            prev.addEventListener('click', () => {
-                idx--;
-                showImg();
-            });
-        </script>
-        <script src="js/script.js"></script>
+        prev.addEventListener('click', () => {
+            idx--;
+            showImg();
+        });
+    </script>
+    <script src="js/script.js"></script>
 
 </body>
