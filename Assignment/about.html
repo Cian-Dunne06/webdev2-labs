@@ -9,9 +9,10 @@
 </head>
 
 <body>
+
     <header>
-            <h1>Assignment - Cities of the World</h1>
-            <img class="ui small image" src="images/headerGlobe.png" alt="Globe">
+        <h1>Assignment - Cities of the World</h1>
+        <img class="ui small image" src="images/headerGlobe.png" alt="Globe">
     </header>
 
     <div class="ui grid" id="mainBody">
@@ -27,41 +28,159 @@
         <div class="twelve wide column">
             <main>
                 <h2 class="aboutTitle">About</h2>
-                <p class="aboutParagraph">This website is now complete, here we got to try out several features of this module. Let me point out these features.</p>
-                <div class="welcomePage">
-                <h3>Welcome Page</h3>
-                <p> This page included:</p>
-                <ul>
-                    <li>A dynamic welcome message that displayed the users name if entered, it also just displayed a generic message if no name is entered.</li>
-                    <li>Image rollover, the image on this page swaps out when the cursor is hovering over it.</li>
-                    <li>A collapsible box containing information about the website.</li>
-                </ul>
-                </div>
+                <p class="aboutParagraph">This website is now complete, here we got to try out several features of this
+                    module. Let me point out these features.</p>
 
-                <div class="dataPage">
-                <h3>Data Page</h3>
-                <p>This page included:</p>
-                <ul>
-                    <li>An array of objects that automatically display as cards using handlebars.</li>
-                    <li>A search by name feature that updates with each input</li>
-                    <li>A filter by continent feature, a dropdown menu that displays only cities in the continent chosen.</li>
-                    <li>A sort button that sorts the cities by population in both ascending and descending order.</li>
-                    <li>A clear button that sets the cards back to their original position.</li>
-                    <li>A delete button that allows you to remove the object you click delete on.</li>
-                    <li>An add record button that displays a form that can be filled out, it then creates a new object and card using the inputted data.</li>
-                    <li>A facts section that uses calculations to display information about the cities, it updates with any changes.</li>
-                </ul>
-                </div>
+                <div class="aboutPageContent">
+                    <div class="features">
+                        <div class="welcomePage">
+                            <h3>Welcome Page</h3>
+                            <p> This page included:</p>
+                            <ul>
+                                <li>A dynamic welcome message that displayed the users name if entered, it also just
+                                    displayed a generic message if no name is entered.</li>
+                                <li>Image rollover, the image on this page swaps out when the cursor is hovering over
+                                    it.</li>
+                                <li>A collapsible box containing information about the website.</li>
+                            </ul>
+                        </div>
 
-                <div class="aboutPage">
-                <h3>About Page</h3>
-                <p>This page included:</p>
-                <ul>
-                    <li>Placeholder</li>
-                </ul>
+                        <div class="dataPage">
+                            <h3>Data Page</h3>
+                            <p>This page included:</p>
+                            <ul>
+                                <li>An array of objects that automatically display as cards using handlebars.</li>
+                                <li>A search by name feature that updates with each input</li>
+                                <li>A filter by continent feature, a dropdown menu that displays only cities in the
+                                    continent chosen.</li>
+                                <li>A sort button that sorts the cities by population in both ascending and descending
+                                    order.</li>
+                                <li>A clear button that sets the cards back to their original position.</li>
+                                <li>A delete button that allows you to remove the object you click delete on.</li>
+                                <li>An add record button that displays a form that can be filled out, it then creates a
+                                    new object and card using the inputted data.</li>
+                                <li>A facts section that uses calculations to display information about the cities, it
+                                    updates with any changes.</li>
+                            </ul>
+                        </div>
+
+                        <div class="aboutPage">
+                            <h3>About Page</h3>
+                            <p>This page included:</p>
+                            <ul>
+                                <li>An expandable textbox introducing myself.</li>
+                                <li>An image that utilises css transform.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="aboutMe">
+                        <h3>My name is Cian.</h3>
+                        <p> I am a Software Systems Development student and this is an assignment for my Website
+                            Development 2 Module <br>
+                            I have always loved travelling, this is clear from the pictures below, these are all photos
+                            of me travelling to various places over the years, this love of mine is what made me decide
+                            to base this website on some of the great cities in the world.</p>
+
+                        <p>Some of the places I have been to include. </p>
+                        <ul>
+                            <li>Spain</li>
+                            <li>UK</li>
+                            <li>USA</li>
+                            <li>Italy</li>
+                        </ul>
+                        <p>Among others...</p>
+                        <div class="carousel">
+                            <div class="img-wrap">
+                                <img src="images/florida.jpg">
+                                <img src="images/spain.jpg">
+                                <img src="images/croatia.jpg">
+                                <img src="images/londonEye.jpg">
+                                <img src="images/parasail.jpg">
+                                <img src="images/stadium.jpg">
+                            </div>
+                            <button class="prev">‹</button>
+                            <button class="next">›</button>
+                        </div>
+                        <p>Some of my favourite pictures from my travels!</p>
+
+                    </div>
                 </div>
+                <div class="comments">
+                    <script id="search" type="text/x-handlebars-template">
+
+                <table class="commentTable">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Comment</th>
+                    </tr>
+                    </thead>
+                     {{#each comments}}
+                    <tbody>
+                    <tr>
+                        <td>{{name}}</td>
+                        <td>{{message}}</td>
+                    </tr>
+                    </tbody>
+                    {{/each}}
+                </table>
+                </script>
+
+                <button id="addCommentBtn">Add a Comment</button>
+
+                </div>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
 
             </main>
         </div>
     </div>
+    <dialog>
+        <header class="addCity">
+            <h1>Add a City</h1>
+            <button id="close"> X </button>
+        </header>
+        <form id="inputForm">
+            <div class="form-row">
+                <label for="commentName">Name</label>
+                <input type="text" name="commentName" id="commentName" autofocus required
+                    title="Please enter a valid name">
+            </div>
+
+            <div class="form-row">
+                <label for="message">Comment</label>
+                <input type="text" name="message" id="message" autofocus required title="Please enter a valid country">
+            </div>
+        </form>
+    </dialog>
+
+        <script>
+
+
+            //Carousel
+            const prev = document.querySelector('.prev');
+            const next = document.querySelector('.next');
+            const wrap = document.querySelector('.img-wrap');
+            const imgs = document.querySelectorAll('.img-wrap img');
+
+            let idx = 0;
+
+            const showImg = () => {
+                if (idx >= imgs.length) idx = 0;
+                if (idx < 0) idx = imgs.length - 1;
+                wrap.style.transform = `translateX(-${idx * 100}%)`;
+            }
+
+            next.addEventListener('click', () => {
+                idx++;
+                showImg();
+            });
+
+            prev.addEventListener('click', () => {
+                idx--;
+                showImg();
+            });
+        </script>
+        <script src="js/script.js"></script>
+
 </body>

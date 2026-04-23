@@ -11,11 +11,11 @@ if (coll) {
 
     const img = document.querySelector(".imageSwap")
 
-    img.addEventListener("mouseover", function() {
+    img.addEventListener("mouseover", function () {
         this.src = "images/enjoy.jpg";
     });
 
-    img.addEventListener("mouseout", function() {
+    img.addEventListener("mouseout", function () {
         this.src = "images/welcome.jpg";
     })
 }
@@ -246,3 +246,26 @@ if (cardsEl) {
     const cityByArea = [...cities].sort((a, b) => b.area - a.area);
     document.querySelector("#largestCity").innerHTML = `The Largest City by Area is: <b> ${cityByArea[0].name}</b> at <b> ${cityByArea[0].area}km² </b>`;
 }
+
+
+const comments = [
+    {
+        name: "Jake",
+        message: "Really enjoyable!!"
+    },
+    {
+        name: "Claire",
+        message: "I didn't know that London was that old."
+    },
+    {
+        name: "Kyle",
+        message: "Tough to read."
+    }
+];
+
+
+const commentSource = document.getElementById("search").innerHTML;
+const commentTemplate = Handlebars.compile(commentSource);
+const commentHTML = commentTemplate({ comments });
+document.querySelector(".comments").innerHTML = commentHTML;
+
