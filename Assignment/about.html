@@ -68,8 +68,9 @@
                             <h3>About Page</h3>
                             <p>This page included:</p>
                             <ul>
-                                <li>An expandable textbox introducing myself.</li>
-                                <li>An image that utilises css transform.</li>
+                                <li>An image carousel.</li>
+                                <li>A comment feature that displays new comments instantly.</li>
+                                <li>A plugin</li>
                             </ul>
                         </div>
                     </div>
@@ -117,7 +118,7 @@
                         <tbody id="commentBody"></tbody>
                     </table>
 
-                     <button type="button" id="addCommentBtn">Add a Comment</button>
+                    <button type="button" id="addCommentBtn">Add a Comment</button>
                 </div>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
 
@@ -146,9 +147,11 @@
             </button>
             <button type="button" id="close">
                 Close
-             </button>
+            </button>
         </form>
     </dialog>
+
+    <script src="js/script.js"></script>
 
     <script>
 
@@ -176,7 +179,7 @@
             idx--;
             showImg();
         });
+
     </script>
-    <script src="js/script.js"></script>
 
 </body>

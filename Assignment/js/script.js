@@ -12,11 +12,11 @@ if (coll) {
     const img = document.querySelector(".imageSwap")
 
     img.addEventListener("mouseover", function () {
-        this.src = "images/enjoy.jpg";
+        this.src = "images/enjoy2.jpg";
     });
 
     img.addEventListener("mouseout", function () {
-        this.src = "images/welcome.jpg";
+        this.src = "images/enjoy1.jpg";
     })
 }
 
