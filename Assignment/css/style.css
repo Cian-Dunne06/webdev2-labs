@@ -268,8 +268,9 @@ dialog .addCity button {
     margin-top: 20px;
 }
 
-.aboutParagraph{
+#typed{
     text-align: center;
+    font-size: 20px;
 }
 
 .welcomePage{

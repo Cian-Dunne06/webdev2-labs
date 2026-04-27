@@ -28,8 +28,8 @@
         <div class="twelve wide column">
             <main>
                 <h2 class="aboutTitle">About</h2>
-                <p class="aboutParagraph">This website is now complete, here we got to try out several features of this
-                    module. Let me point out these features.</p>
+                <!-- Paragraph using typed.js plugin -->
+                <p id="typed"></p>
 
                 <div class="aboutPageContent">
                     <div class="features">
@@ -70,7 +70,7 @@
                             <ul>
                                 <li>An image carousel.</li>
                                 <li>A comment feature that displays new comments instantly.</li>
-                                <li>A plugin</li>
+                                <li>Basic use of Typed.js plugin for intro to this page.</li>
                             </ul>
                         </div>
                     </div>
@@ -91,6 +91,8 @@
                             <li>Italy</li>
                         </ul>
                         <p>Among others...</p>
+
+                        <!-- Image Carousel -->
                         <div class="carousel">
                             <div class="img-wrap">
                                 <img src="images/florida.jpg">
@@ -107,6 +109,7 @@
 
                     </div>
                 </div>
+                <!-- Table for Comments -->
                 <div class="comments">
                     <table class="commentTable">
                         <thead>
@@ -118,6 +121,7 @@
                         <tbody id="commentBody"></tbody>
                     </table>
 
+                    <!-- Add comment button -->
                     <button type="button" id="addCommentBtn">Add a Comment</button>
                 </div>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
@@ -125,6 +129,7 @@
             </main>
         </div>
     </div>
+    <!-- Form for adding comments -->
     <dialog>
         <header class="addCity">
             <h1>Comments</h1>
@@ -151,11 +156,10 @@
         </form>
     </dialog>
 
-    <script src="js/script.js"></script>
+    <!-- Installing Plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
     <script>
-
-
         //Carousel
         const prev = document.querySelector('.prev');
         const next = document.querySelector('.next');
@@ -180,6 +184,57 @@
             showImg();
         });
 
+
+        //Code for typed plugin
+        new Typed('#typed', {
+            strings: ['This website is now complete! Here we got to try out several features of this module... Let me point them out to you. I really hope you enjoyed my website!'],
+            typeSpeed: 100,
+            loop: false
+        });
+        //Declares the string to be typed, makes sure it only happens once and types at speed 100.
+
+
+        //Comments
+        const comments = [
+            { name: "Jake", message: "Really enjoyable!!" },
+            { name: "Claire", message: "I didn't know that London was that old." },
+            { name: "Kyle", message: "Tough to read." }
+        ];
+
+        function renderComments() {
+            const tbody = document.getElementById("commentBody");
+            tbody.innerHTML = "";
+            [...comments].reverse().forEach(comment => {
+                const row = document.createElement("tr");
+                row.innerHTML = `<td>${comment.name}</td><td>${comment.message}</td>`;
+                tbody.appendChild(row);
+            });
+        }
+
+        renderComments();
+
+        document.getElementById("addCommentBtn").addEventListener("click", () => {
+            document.querySelector("dialog").showModal();
+        });
+
+        document.getElementById("close").addEventListener("click", () => {
+            document.querySelector("dialog").close();
+        });
+
+        const commentForm = document.querySelector("dialog form");
+
+        commentForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const name = commentForm.elements.commentName.value;
+            const message = commentForm.elements.message.value;
+
+            comments.push({ name, message });
+            renderComments();
+
+            commentForm.reset();
+            document.querySelector("dialog").close();
+        });
     </script>
 
 </body>

@@ -1,31 +1,13 @@
-const coll = document.querySelector(".collapsible");
-if (coll) {
-    coll.addEventListener("click", function () {
-        var content = this.nextElementSibling;
-        if (content.style.display === "block") {
-            content.style.display = "none";
-        } else {
-            content.style.display = "block";
-        }
-    });
 
-    const img = document.querySelector(".imageSwap")
-
-    img.addEventListener("mouseover", function () {
-        this.src = "images/enjoy2.jpg";
-    });
-
-    img.addEventListener("mouseout", function () {
-        this.src = "images/enjoy1.jpg";
-    })
-}
-
-const cardsEl = document.querySelector("#cards");
-if (cardsEl) {
+//AI used for this if loop, JavaScript was breaking and I couldn't figure out why.
+//Turns out the JS wasn't sure which page it was applying the code to so this just clarifies it.
+//I moved the rest of the JS to script tags in their own html page to avoid this. This would have been messy to move so I left it.
+const dataPage = document.querySelector("#cards");
+if (dataPage) {
 
     const makeSelect = document.getElementById("makeSelect");
 
-    const cities = [
+    const defaultCities = [
         {
             name: "London",
             country: "UK",
@@ -118,6 +100,13 @@ if (cardsEl) {
         },
     ];
 
+    //Needs 2 Arrays to avoid duplicates, repurposed this code I found online to suit my page.
+    const saved = localStorage.getItem('cities');
+    const cities = saved ? JSON.parse(saved) : defaultCities;
+ 
+    function saveCities() {
+        localStorage.setItem('cities', JSON.stringify(cities));
+    }
 
     function renderCards(list) {
         const source = document.getElementById("search").innerHTML;
@@ -130,19 +119,18 @@ if (cardsEl) {
 
 
     //Search
-    document.querySelector("form").addEventListener("input", function (e) {
-        e.preventDefault();
+    document.querySelector("form").addEventListener("input", function () {
         const input = document.getElementById("name").value.trim().toLowerCase();
         const filtered = cities.filter(city =>
             city.name.toLowerCase().startsWith(input)
         );
         renderCards(filtered);
     });
+    //Updates every input, trims and puts input into lower case. Then creates a new array with objects that match that criteria, displays that as cards.
 
     //Select
     makeSelect.addEventListener('change', () => {
         const continent = makeSelect.value;
-        document.getElementById("cards").innerHTML;
 
         if (continent === "") {
             renderCards(cities);
@@ -154,6 +142,7 @@ if (cardsEl) {
             renderCards(filtered)
         }
     });
+    //Uses dropdown, if no value picked it stays the same, makes new array with objects from specified continent, renders them as cards.
 
     //Sort
 
@@ -167,6 +156,7 @@ if (cardsEl) {
         );
         renderCards(sorted);
     });
+    //Makes sortAscending the default when button is pressed, when button is pressed it creates a new array sorting by population, triggering the event toggles sortAscending.
 
     //Clear
     document.querySelector('.clearFilters').addEventListener("click", function () {
@@ -175,9 +165,9 @@ if (cardsEl) {
         sortAscending = true;
         renderCards(cities);
     });
+    //When event triggers it returns all filters to their default value, resetting the array to the way it was at the start.
 
     //Delete Button
-
     document.querySelector('#cards').addEventListener("click", function (evt) {
         if (evt.target.matches(".delete")) {
             const cityName = evt.target.dataset.name;
@@ -188,14 +178,15 @@ if (cardsEl) {
                 const index = cities.findIndex(city => city.name === cityName);
                 if (index !== -1) {
                     cities.splice(index, 1);
+                    saveCities();
                     renderCards(cities);
                 }
             }, 800);
         }
     });
+    //When button is pressed it searches for the matching name value and deletes the card, it has a timeout of 800 to allow the disappearing animation to occur.
 
     //Add Record
-
     const form = document.querySelector("dialog form")
 
 
@@ -227,6 +218,7 @@ if (cardsEl) {
 
         const newCity = { name, country, continent, population, area, yearFounded, image };
         cities.push(newCity);
+        saveCities();
         renderCards(cities);
         form.reset();
 
@@ -239,9 +231,9 @@ if (cardsEl) {
     document.querySelector("#close").addEventListener("click", () => {
         document.querySelector("dialog").close();
     });
+    //Opens form and allows data to be input, validates data where necessary and builds new object pushing it to the front of the array, form is then reset and cards are rendered
 
     //Information
-
     const avgPop = cities.reduce((total, city) => total + city.population, 0) / cities.length;
     document.querySelector("#averagePopulation").innerHTML = `The Average Population of the Cities is: <b> ${avgPop.toFixed(2)}m </b>`;
 
@@ -250,50 +242,5 @@ if (cardsEl) {
 
     const cityByArea = [...cities].sort((a, b) => b.area - a.area);
     document.querySelector("#largestCity").innerHTML = `The Largest City by Area is: <b> ${cityByArea[0].name}</b> at <b> ${cityByArea[0].area}km² </b>`;
-}
-
-
-const commentsEl = document.querySelector(".comments");
-if (commentsEl) {
-
-    const comments = [
-        { name: "Jake", message: "Really enjoyable!!" },
-        { name: "Claire", message: "I didn't know that London was that old." },
-        { name: "Kyle", message: "Tough to read." }
-    ];
-
-    function renderComments() {
-        const tbody = document.getElementById("commentBody");
-        tbody.innerHTML = "";
-        comments.forEach(comment => {
-            const row = document.createElement("tr");
-            row.innerHTML = `<td>${comment.name}</td><td>${comment.message}</td>`;
-            tbody.appendChild(row);
-        });
-    }
-
-    renderComments();
-
-    document.getElementById("addCommentBtn").addEventListener("click", () => {
-        document.querySelector("dialog").showModal();
-    });
-
-    document.getElementById("close").addEventListener("click", () => {
-        document.querySelector("dialog").close();
-    });
-
-    const commentForm = document.querySelector("dialog form");
-
-    commentForm.addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        const name = commentForm.elements.commentName.value;
-        const message = commentForm.elements.message.value;
-
-        comments.push({ name, message });
-        renderComments();
-
-        commentForm.reset();
-        document.querySelector("dialog").close();
-    });
+    //Uses JS to calculate the facts and then uses innerHTML to add them to the specified spots on the page.
 }

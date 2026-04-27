@@ -28,14 +28,18 @@
       <main>
         <div id="container">
           <h1 class="dataTitle">Cities of the World</h1>
+
+          <!-- Filter/Search Section Div -->
           <div class="searchCities">
             <form>
               <div class="form-row">
+                <!-- Search Bar for Name -->
                 <label for="name">Search by Name</label>
                 <input type="text" name="name" id="name" autofocus required>
               </div>
             </form>
 
+            <!-- Drop Down of Continents -->
             <label for="continent"> Filter by Continent</label>
             <select id="makeSelect">
               <option value="">-- Select a Continent --</option>
@@ -47,63 +51,69 @@
               <option value="Oceania">Oceania</option>
             </select>
 
+            <!-- Population Sort Button -->
             <button class="sortPop"> Sort by Population </button>
 
+            <!-- Clear Filters Button -->
             <button class="clearFilters"> Clear </button>
 
           </div>
 
-          
-    <div class="cardsAndAddRecord">
-          <div id="cards"></div>
-      
+          <!-- For formatting button with cards -->
+          <div class="cardsAndAddRecord">
+            <div id="cards"></div>
 
-        <script id="search" type="text/x-handlebars-template">
-  
-      <div class="ui centered link cards">
-       {{#each cities}}
-      <div class="card">
-        <div class="image">
-          <img src="{{image}}" alt="{{name}}"> 
-        </div>
-        <div class="content">
-          <div class="header">{{name}}</div>
-          <div class="meta">{{country}}</div>
-          <div class="description">
-            <p><i class="globe icon"></i><strong>Continent:</strong> {{continent}}</p>
-            <p><i class="users icon"></i><strong>Population:</strong> {{population}}m</p>
-            <p><i class="expand icon"></i><strong>Area:</strong> {{area}} km²</p>
-            <p><i class="history icon"></i><strong>Founded:</strong> {{yearFounded}}AD</p>
+
+            <script id="search" type="text/x-handlebars-template">
+
+      <!-- Cards -->
+            <div class="ui centered link cards">
+              {{#each cities}}
+              <div class="card">
+                <div class="image">
+                  <img src="{{image}}" alt="{{name}}">
+                </div>
+                <div class="content">
+                  <div class="header">{{name}}</div>
+                  <div class="meta">{{country}}</div>
+                  <div class="description">
+                    <p><i class="globe icon"></i><strong>Continent:</strong> {{continent}}</p>
+                    <p><i class="users icon"></i><strong>Population:</strong> {{population}}m</p>
+                    <p><i class="expand icon"></i><strong>Area:</strong> {{area}} km²</p>
+                    <p><i class="history icon"></i><strong>Founded:</strong> {{yearFounded}}AD</p>
+                  </div>
+                </div>
+                <div>
+                  <!-- Delete Button -->
+                  <button class="delete" data-name="{{name}}"> Delete </button>
+                </div>
+              </div>
+              {{/each}}
+            </div>
+            </script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+
+            <!-- Button for adding new cities -->
+            <button id="addRecordBtn">Add a Record</button>
           </div>
-        </div>
-        <div>
-            <button class="delete" data-name="{{name}}"> Delete </button>
-        </div>
-      </div>
-    {{/each}}
-      </div>
-      </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
 
+          <!-- Div for Facts about cities -->
+          <div class="factsDiv">
+            <h2> Facts! </h2>
+            <p> Here are some interesting pieces of information about the cities.</p>
+            <ul>
+              <li id="averagePopulation"></li>
+              <li id="oldestCity"></li>
+              <li id="largestCity"></li>
+            </ul>
 
-        <button id="addRecordBtn">Add a Record</button>
+          </div>
+      </main>
     </div>
-
-    <div class="factsDiv">
-    <h2> Facts! </h2>
-    <p> Here are some interesting pieces of information about the cities.</p>
-    <ul>
-      <li id="averagePopulation"></li>
-      <li id="oldestCity"></li>
-      <li id="largestCity"></li>
-    </ul>
-
-    </div>
-    </main>
-  </div>
   </div>
 
   <dialog>
+    <!-- Form for adding new city -->
     <header class="addCity">
       <h1>Add a City</h1>
       <button id="close"> X </button>
@@ -162,4 +172,5 @@
     </form>
   </dialog>
   <script src="js/script.js"></script>
+
 </body>
