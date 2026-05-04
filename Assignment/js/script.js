@@ -1,11 +1,10 @@
-
 //AI used for this if loop, JavaScript was breaking and I couldn't figure out why.
 //Turns out the JS wasn't sure which page it was applying the code to so this just clarifies it.
 //I moved the rest of the JS to script tags in their own html page to avoid this. This would have been messy to move so I left it.
 const dataPage = document.querySelector("#cards");
 if (dataPage) {
 
-    const makeSelect = document.getElementById("makeSelect");
+    const makeSelect = document.querySelector("#makeSelect");
 
     const defaultCities = [
         {
@@ -100,7 +99,8 @@ if (dataPage) {
         },
     ];
 
-    //Needs 2 Arrays to avoid duplicates, repurposed this code I found online to suit my page.
+    //Saving Changes 
+    //Needs 2 Arrays to avoid duplicates, repurposed this code to suit my page.
     const saved = localStorage.getItem('cities');
     const cities = saved ? JSON.parse(saved) : defaultCities;
  
@@ -109,10 +109,10 @@ if (dataPage) {
     }
 
     function renderCards(list) {
-        const source = document.getElementById("search").innerHTML;
+        const source = document.querySelector("#search").innerHTML;
         const template = Handlebars.compile(source);
         const html = template({ cities: list });
-        document.getElementById("cards").innerHTML = html;
+        document.querySelector("#cards").innerHTML = html;
     }
 
     renderCards(cities);
@@ -120,7 +120,7 @@ if (dataPage) {
 
     //Search
     document.querySelector("form").addEventListener("input", function () {
-        const input = document.getElementById("name").value.trim().toLowerCase();
+        const input = document.querySelector("#name").value.trim().toLowerCase();
         const filtered = cities.filter(city =>
             city.name.toLowerCase().startsWith(input)
         );

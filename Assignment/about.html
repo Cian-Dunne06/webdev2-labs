@@ -200,9 +200,10 @@
             { name: "Claire", message: "I didn't know that London was that old." },
             { name: "Kyle", message: "Tough to read." }
         ];
+        //Array of Comments
 
         function renderComments() {
-            const tbody = document.getElementById("commentBody");
+            const tbody = document.querySelector("#commentBody");
             tbody.innerHTML = "";
             [...comments].reverse().forEach(comment => {
                 const row = document.createElement("tr");
@@ -210,21 +211,22 @@
                 tbody.appendChild(row);
             });
         }
+        //Function that targets the table, makes a new array for comments and reverses it (puts new additions at top), it then goes through each object and creates a new row on the table inputting each comment.
 
         renderComments();
 
-        document.getElementById("addCommentBtn").addEventListener("click", () => {
+        document.querySelector("#addCommentBtn").addEventListener("click", () => {
             document.querySelector("dialog").showModal();
         });
 
-        document.getElementById("close").addEventListener("click", () => {
+        document.querySelector("#close").addEventListener("click", () => {
             document.querySelector("dialog").close();
         });
 
         const commentForm = document.querySelector("dialog form");
 
-        commentForm.addEventListener("submit", function (e) {
-            e.preventDefault();
+        commentForm.addEventListener("submit", function (evt) {
+            evt.preventDefault();
 
             const name = commentForm.elements.commentName.value;
             const message = commentForm.elements.message.value;

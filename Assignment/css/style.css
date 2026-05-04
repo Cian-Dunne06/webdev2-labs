@@ -107,7 +107,6 @@ main {
     margin: 0 auto;
 }
 
-
 .collapsible {
   background-color: #EEEEEE;
   color: black;
@@ -191,7 +190,6 @@ main {
     color: black;
 }
 
-
 form#inputForm {
   border: solid black;
   padding: 20px;
@@ -216,7 +214,6 @@ dialog form select {
   margin-bottom: 1em;
   background-color: #2FA084;
 }
-
 
 form button {
   padding: 1em;
@@ -385,12 +382,3 @@ dialog .addCity button {
     margin-top: 10px;
     padding: 5px;
 }
-
-
-
-
-
-
-
-
-  
